@@ -1,10 +1,11 @@
 package instruments.guitars;
 
 import behaviours.IPlay;
+import behaviours.ISell;
 import instruments.Instrument;
 import instruments.InstrumentType;
 
-public class Guitar extends Instrument implements IPlay {
+public class Guitar extends Instrument implements IPlay, ISell {
     private GuitarType guitarType;
 
     public Guitar(String material, String colour, InstrumentType instrumentType, GuitarType guitarType, double buyPrice, double sellPrice) {
@@ -26,5 +27,9 @@ public class Guitar extends Instrument implements IPlay {
 
     public String playSound() {
         return "That sweet guitar sound";
+    }
+
+    public double calculateMarkUp() {
+        return this.getSellPrice() - this.getBuyPrice();
     }
 }
