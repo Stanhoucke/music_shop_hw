@@ -4,6 +4,7 @@ import behaviours.ISell;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,5 +61,15 @@ public class Shop {
                 .stream()
                 .map(ISell::calculateMarkUp)
                 .reduce(0.00, (total, markUp) -> total += markUp);
+    }
+
+    public ArrayList<ISell> filterStockBySellPriceOver(double sellPrice) {
+        ArrayList<ISell> filteredStock = new ArrayList<>();
+        for (ISell item : this.stock){
+            if(item.getSellPrice() > sellPrice){
+                filteredStock.add(item);
+            }
+        }
+        return filteredStock;
     }
 }

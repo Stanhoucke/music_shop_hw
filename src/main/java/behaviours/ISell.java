@@ -1,5 +1,6 @@
 package behaviours;
 
 public interface ISell {
-    public double calculateMarkUp();
+    double calculateMarkUp();
+    double getSellPrice();
 }

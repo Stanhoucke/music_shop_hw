@@ -81,4 +81,10 @@ public class ShopTest {
     public void canCalculateTotalPotentialProfit() {
         assertEquals(155.00, shop.calculateTotalPotentialProfit(), 0.01);
     }
+
+    @Test
+    public void canFilterStockBySellPrice(){
+        shop.addStock(accessory1);
+        assertEquals(2, shop.filterStockBySellPriceOver(20.00).size());
+    }
 }
