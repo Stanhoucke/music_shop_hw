@@ -2,7 +2,10 @@ package shop;
 
 import behaviours.ISell;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Shop {
 
@@ -37,9 +40,19 @@ public class Shop {
     public void addStock(ISell item){
         this.stock.add(item);
     }
+    public void addStock(ArrayList<ISell> items){
+        for (ISell item : items){
+            this.addStock(item);
+        }
+    }
 
     public void removeStock(ISell item){
         this.stock.remove(item);
+    }
+    public void removeStock (ArrayList<ISell> items){
+        for (ISell item : items){
+            this.removeStock(item);
+        }
     }
 
 }

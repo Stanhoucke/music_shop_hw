@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,6 +21,7 @@ public class ShopTest {
     Guitar guitar;
     Piano piano;
     Accessory accessory1, accessory2;
+    ArrayList<ISell> newStockList;
 
     @Before
     public void before(){
@@ -30,6 +32,8 @@ public class ShopTest {
         piano = new Piano("Plastic","Black",InstrumentType.KEYBOARD, PianoType.KEYBOARD,100.00,200.00);
         accessory1 = new Accessory("guitar strings", 3.00, 6.00);
         accessory2 = new Accessory("sheet music", 5.00, 7.00);
+
+        newStockList = new ArrayList<ISell>(Arrays.asList(guitar, piano, accessory1, accessory2));
 
         shop.addStock(guitar);
         shop.addStock(piano);
@@ -59,5 +63,17 @@ public class ShopTest {
     public void canRemoveStock() {
         shop.removeStock(piano);
         assertEquals(3, shop.countStock());
+    }
+
+    @Test
+    public void canAddStockList(){
+        emptyShop.addStock(newStockList);
+        assertEquals(4, emptyShop.countStock());
+    }
+
+    @Test
+    public void canRemoveStockList() {
+        shop.removeStock(newStockList);
+        assertEquals(0, shop.countStock());
     }
 }
