@@ -55,4 +55,11 @@ public class Shop {
         }
     }
 
+    public double calculateTotalPotentialProfit() {
+        double totalPotentialProfit = 0;
+        for (ISell item : this.stock){
+            totalPotentialProfit += item.calculateMarkUp();
+        }
+        return totalPotentialProfit;
+    }
 }

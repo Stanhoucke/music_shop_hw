@@ -76,4 +76,9 @@ public class ShopTest {
         shop.removeStock(newStockList);
         assertEquals(0, shop.countStock());
     }
+
+    @Test
+    public void canCalculateTotalPotentialProfit() {
+        assertEquals(155.00, shop.calculateTotalPotentialProfit(), 0.01);
+    }
 }
