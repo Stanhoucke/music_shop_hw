@@ -30,4 +30,16 @@ public class Shop {
         this.stock = stock;
     }
 
+    public int countStock(){
+        return this.stock.size();
+    }
+
+    public void addStock(ISell item){
+        this.stock.add(item);
+    }
+
+    public void removeStock(ISell item){
+        this.stock.remove(item);
+    }
+
 }
