@@ -1,4 +1,10 @@
 package instruments.saxophones;
 
-public class SaxophoneType {
+public enum SaxophoneType {
+    SOPRANO,
+    ALTO;
+
+    SaxophoneType(){
+
+    }
 }
