@@ -56,10 +56,9 @@ public class Shop {
     }
 
     public double calculateTotalPotentialProfit() {
-        double totalPotentialProfit = 0;
-        for (ISell item : this.stock){
-            totalPotentialProfit += item.calculateMarkUp();
-        }
-        return totalPotentialProfit;
+        return this.stock
+                .stream()
+                .map(ISell::calculateMarkUp)
+                .reduce(0.00, (total, markUp) -> total += markUp);
     }
 }
