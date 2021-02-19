@@ -29,4 +29,9 @@ public class AccessoryTest {
     public void hasSellPrice() {
         assertEquals(6.00, accessory.getSellPrice(), 0.0);
     }
+
+    @Test
+    public void canCalculateMarkUp() {
+        assertEquals(3.00, accessory.calculateMarkUp(), 0.01);
+    }
 }
