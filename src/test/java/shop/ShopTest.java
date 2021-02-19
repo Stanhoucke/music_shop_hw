@@ -87,4 +87,9 @@ public class ShopTest {
         shop.addStock(accessory1);
         assertEquals(2, shop.filterStockBySellPriceOver(20.00).size());
     }
+
+    @Test
+    public void canFilterStockByInstrumentType(){
+        assertEquals(1, shop.filterStockByInstrumentType(InstrumentType.STRING).size());
+    }
 }

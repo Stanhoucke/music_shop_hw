@@ -1,6 +1,8 @@
 package shop;
 
 import behaviours.ISell;
+import instruments.Instrument;
+import instruments.InstrumentType;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -68,6 +70,18 @@ public class Shop {
         for (ISell item : this.stock){
             if(item.getSellPrice() > sellPrice){
                 filteredStock.add(item);
+            }
+        }
+        return filteredStock;
+    }
+
+    public ArrayList<Instrument> filterStockByInstrumentType(InstrumentType instrumentType){
+        ArrayList<Instrument> filteredStock = new ArrayList<>();
+        for (ISell item : this.stock){
+            if (item instanceof Instrument){
+                if (((Instrument) item).getInstrumentType() == instrumentType){
+                    filteredStock.add((Instrument) item);
+                }
             }
         }
         return filteredStock;
